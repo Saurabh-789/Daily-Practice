@@ -1,0 +1,269 @@
+Enter password: ****
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 64
+Server version: 8.0.19 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> show databases;use jalgaon1;create table emp1(empno char(4),empname char(20),empgen char(1),sal float,empstatus char(3) );insert into emp1 values('0001','saurabh','M',5000,'A'),('0002','ketan','M',6000,'A'),('0003','ram','M',7000,'NA'),('0004','meera','F',9000,'A'),('0005',null,'M',5000,'A'),(null,'ketan1','M',6000,'A'),('0007','ram1','M',null,'NA'),('0008','meera1','F',9000,null);select * from emp1;select empno ,empname from emp1;select * from emp1 where empno=0004; insert into emp1 values ('0009',null,'M',5000,'A'),(null,'ketan1','M',6000,'A'),('0011','ram1','M',null,'NA'),('0012','meera1','F',9000,null);  select * from emp1 where sal>5000;   select * from emp1 where sal>5000;  select * from emp1 where empno=0011 or sal>2000 and sal <6000;   select * from emp1 where (empno=0011 or sal>2000) and sal <6000;  select * from emp1 where empgen='f';  select empname,sal from emp1;   select empname,sal 'salary',sal*12 'annual salary'  from emp1;    select empname 'name' , sal 'salaryyy',sal*4 'quarter',sal*12 'annual' from emp1;    select empno ,empname,empgen,sal,empstatus from emp1  order by empno;    select empno ,empname,empgen,sal,empstatus from emp1  order by  empno desc ;      select empno ,empname,empgen,sal,empstatus from emp1    where empgen ='M'  order by  empname  ;     select empno ,empname,empgen,sal,empstatus from emp1  order by empno , empname ;  select empname,sal*12 'annual' from emp1order by annual;    select * from emp1  order by 2;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| jalgaon            |
+| jalgaon1           |
+| mysql              |
+| performance_schema |
+| sakila             |
+| sys                |
+| world              |
++--------------------+
+8 rows in set (0.03 sec)
+
+Database changed
+Query OK, 0 rows affected (1.06 sec)
+
+Query OK, 8 rows affected (0.18 sec)
+Records: 8  Duplicates: 0  Warnings: 0
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0001  | saurabh | M      | 5000 | A         |
+| 0002  | ketan   | M      | 6000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0004  | meera   | F      | 9000 | A         |
+| 0005  | NULL    | M      | 5000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0007  | ram1    | M      | NULL | NA        |
+| 0008  | meera1  | F      | 9000 | NULL      |
++-------+---------+--------+------+-----------+
+8 rows in set (0.00 sec)
+
++-------+---------+
+| empno | empname |
++-------+---------+
+| 0001  | saurabh |
+| 0002  | ketan   |
+| 0003  | ram     |
+| 0004  | meera   |
+| 0005  | NULL    |
+| NULL  | ketan1  |
+| 0007  | ram1    |
+| 0008  | meera1  |
++-------+---------+
+8 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0004  | meera   | F      | 9000 | A         |
++-------+---------+--------+------+-----------+
+1 row in set (0.00 sec)
+
+Query OK, 4 rows affected (0.18 sec)
+Records: 4  Duplicates: 0  Warnings: 0
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0002  | ketan   | M      | 6000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0004  | meera   | F      | 9000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0012  | meera1  | F      | 9000 | NULL      |
++-------+---------+--------+------+-----------+
+7 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0002  | ketan   | M      | 6000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0004  | meera   | F      | 9000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0012  | meera1  | F      | 9000 | NULL      |
++-------+---------+--------+------+-----------+
+7 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0001  | saurabh | M      | 5000 | A         |
+| 0005  | NULL    | M      | 5000 | A         |
+| 0009  | NULL    | M      | 5000 | A         |
+| 0011  | ram1    | M      | NULL | NA        |
++-------+---------+--------+------+-----------+
+4 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0001  | saurabh | M      | 5000 | A         |
+| 0005  | NULL    | M      | 5000 | A         |
+| 0009  | NULL    | M      | 5000 | A         |
++-------+---------+--------+------+-----------+
+3 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0004  | meera   | F      | 9000 | A         |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| 0012  | meera1  | F      | 9000 | NULL      |
++-------+---------+--------+------+-----------+
+3 rows in set (0.00 sec)
+
++---------+------+
+| empname | sal  |
++---------+------+
+| saurabh | 5000 |
+| ketan   | 6000 |
+| ram     | 7000 |
+| meera   | 9000 |
+| NULL    | 5000 |
+| ketan1  | 6000 |
+| ram1    | NULL |
+| meera1  | 9000 |
+| NULL    | 5000 |
+| ketan1  | 6000 |
+| ram1    | NULL |
+| meera1  | 9000 |
++---------+------+
+12 rows in set (0.00 sec)
+
++---------+--------+---------------+
+| empname | salary | annual salary |
++---------+--------+---------------+
+| saurabh |   5000 |         60000 |
+| ketan   |   6000 |         72000 |
+| ram     |   7000 |         84000 |
+| meera   |   9000 |        108000 |
+| NULL    |   5000 |         60000 |
+| ketan1  |   6000 |         72000 |
+| ram1    |   NULL |          NULL |
+| meera1  |   9000 |        108000 |
+| NULL    |   5000 |         60000 |
+| ketan1  |   6000 |         72000 |
+| ram1    |   NULL |          NULL |
+| meera1  |   9000 |        108000 |
++---------+--------+---------------+
+12 rows in set (0.00 sec)
+
++---------+----------+---------+--------+
+| name    | salaryyy | quarter | annual |
++---------+----------+---------+--------+
+| saurabh |     5000 |   20000 |  60000 |
+| ketan   |     6000 |   24000 |  72000 |
+| ram     |     7000 |   28000 |  84000 |
+| meera   |     9000 |   36000 | 108000 |
+| NULL    |     5000 |   20000 |  60000 |
+| ketan1  |     6000 |   24000 |  72000 |
+| ram1    |     NULL |    NULL |   NULL |
+| meera1  |     9000 |   36000 | 108000 |
+| NULL    |     5000 |   20000 |  60000 |
+| ketan1  |     6000 |   24000 |  72000 |
+| ram1    |     NULL |    NULL |   NULL |
+| meera1  |     9000 |   36000 | 108000 |
++---------+----------+---------+--------+
+12 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| NULL  | ketan1  | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0001  | saurabh | M      | 5000 | A         |
+| 0002  | ketan   | M      | 6000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0004  | meera   | F      | 9000 | A         |
+| 0005  | NULL    | M      | 5000 | A         |
+| 0007  | ram1    | M      | NULL | NA        |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| 0009  | NULL    | M      | 5000 | A         |
+| 0011  | ram1    | M      | NULL | NA        |
+| 0012  | meera1  | F      | 9000 | NULL      |
++-------+---------+--------+------+-----------+
+12 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0012  | meera1  | F      | 9000 | NULL      |
+| 0011  | ram1    | M      | NULL | NA        |
+| 0009  | NULL    | M      | 5000 | A         |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| 0007  | ram1    | M      | NULL | NA        |
+| 0005  | NULL    | M      | 5000 | A         |
+| 0004  | meera   | F      | 9000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0002  | ketan   | M      | 6000 | A         |
+| 0001  | saurabh | M      | 5000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
++-------+---------+--------+------+-----------+
+12 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0005  | NULL    | M      | 5000 | A         |
+| 0009  | NULL    | M      | 5000 | A         |
+| 0002  | ketan   | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0007  | ram1    | M      | NULL | NA        |
+| 0011  | ram1    | M      | NULL | NA        |
+| 0001  | saurabh | M      | 5000 | A         |
++-------+---------+--------+------+-----------+
+9 rows in set (0.00 sec)
+
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| NULL  | ketan1  | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0001  | saurabh | M      | 5000 | A         |
+| 0002  | ketan   | M      | 6000 | A         |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0004  | meera   | F      | 9000 | A         |
+| 0005  | NULL    | M      | 5000 | A         |
+| 0007  | ram1    | M      | NULL | NA        |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| 0009  | NULL    | M      | 5000 | A         |
+| 0011  | ram1    | M      | NULL | NA        |
+| 0012  | meera1  | F      | 9000 | NULL      |
++-------+---------+--------+------+-----------+
+12 rows in set (0.00 sec)
+
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'by annual' at line 1
++-------+---------+--------+------+-----------+
+| empno | empname | empgen | sal  | empstatus |
++-------+---------+--------+------+-----------+
+| 0005  | NULL    | M      | 5000 | A         |
+| 0009  | NULL    | M      | 5000 | A         |
+| 0002  | ketan   | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| NULL  | ketan1  | M      | 6000 | A         |
+| 0004  | meera   | F      | 9000 | A         |
+| 0008  | meera1  | F      | 9000 | NULL      |
+| 0012  | meera1  | F      | 9000 | NULL      |
+| 0003  | ram     | M      | 7000 | NA        |
+| 0007  | ram1    | M      | NULL | NA        |
+| 0011  | ram1    | M      | NULL | NA        |
+| 0001  | saurabh | M      | 5000 | A         |
++-------+---------+--------+------+-----------+
+12 rows in set (0.00 sec)
+
+mysql>
